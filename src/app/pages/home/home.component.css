@@ -1,0 +1,42 @@
+button {
+  display: inline-block;
+  margin: 20px;
+}
+
+.btn-facebook {
+  background-color: #3B5998;
+  width: 30%;
+}
+
+.btn-google {
+  background-color: #DB4437;
+  width: 30%;
+}
+
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 400px;
+  align-content: center;
+
+}
+
+img {
+  margin: 40px auto;
+}
+
+small {
+  flex: none 1 50%;
+  margin-top: 3rem;
+  margin-left: 2rem;
+}
+
+.botones-login {
+  display: inline-block;
+  text-align: center;
+}
+
+p {
+  padding: 1rem 0rem 0rem 1rem;
+}
