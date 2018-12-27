@@ -1,17 +1,13 @@
-import { NgModule } from '@angular/core';
+import { MaterialModule } from './../material/material.module';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 
-const components = [HomeComponent]
+const componentes = [HomeComponent]
 @NgModule({
-  declarations: [
-    components
-  ],
-  exports: [
-    components
-  ],
-  imports: [
-    CommonModule
-  ]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  declarations: [componentes],
+  imports: [CommonModule, MaterialModule],
+  exports: [componentes],
 })
-export class PagesModule { }
+export class PagesModule {}
