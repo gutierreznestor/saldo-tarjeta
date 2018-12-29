@@ -1,42 +1,51 @@
-button {
-  display: inline-block;
-  margin: 20px;
-}
-
-.btn-facebook {
-  background-color: #3B5998;
-  width: 30%;
-}
-
-.btn-google {
-  background-color: #DB4437;
-  width: 30%;
-}
-
-.contenedor {
+div.contenedor {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
-  max-width: 400px;
-  align-content: center;
-
+  height: 80vh;
+  margin: 10vh auto;
 }
 
 img {
-  margin: 40px auto;
+  margin: 2em auto;
+  width: 50vw;
 }
 
-small {
-  flex: none 1 50%;
-  margin-top: 3rem;
-  margin-left: 2rem;
+@media(min-width:700px) {
+  img {
+    width: 35vw;
+  }
 }
 
-.botones-login {
+p.parrafo {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1rem;
+}
+
+div.botones-login {
   display: inline-block;
   text-align: center;
+  margin-top: 2em;
 }
 
-p {
-  padding: 1rem 0rem 0rem 1rem;
+div.botones-login > p {
+  font-size: 0.9rem;
+}
+
+button {
+  margin: 1em;
+}
+
+button.facebook {
+  background-color: #3B5998;
+  width: 15vw;
+  font-size: 0.8vw;
+  text-align: center;
+  padding: 0;
+}
+
+button.google {
+  background-color: #DB4437;
+  width: 15vw;
+  font-size: 0.8vw;
 }
