@@ -8,6 +8,10 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
+    path: "tarjeta",
+    loadChildren: './tarjeta/tarjeta.module#TarjetaModule'
+  },
+  {
     path: "",
     redirectTo: "home",
     pathMatch: "full"
