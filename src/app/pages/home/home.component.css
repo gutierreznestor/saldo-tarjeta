@@ -1,17 +1,20 @@
 div.contenedor {
   display: flex;
   flex-direction: column;
-  height: 80vh;
-  margin: 10vh auto;
+  height: 70vh;
+  margin: 15vh auto;
+  align-items: center;
 }
 
 img {
   margin: 2em auto;
-  width: 50vw;
+  width: 60vw;
+  height: 50vw;
 }
 
 @media(min-width:700px) {
   img {
+    margin: 2em auto;
     width: 35vw;
   }
 }
