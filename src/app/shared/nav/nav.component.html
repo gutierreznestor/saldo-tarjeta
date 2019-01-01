@@ -1,0 +1,19 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" opened>
+    <mat-card>
+        <mat-card-header>
+            <img matCardAvatar src="https://angularfirebase.com/images/logo.svg">
+            <mat-card-title>Gabriel Gutierrez</mat-card-title>
+            <mat-card-subtitle>@theguty</mat-card-subtitle>
+        </mat-card-header>
+    </mat-card>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-button (click)="sidenav.toggle()">
+        <mat-icon class="mat-18">menu</mat-icon>
+      </button>
+      <span>Saldo Tarjeta</span>
+    </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>

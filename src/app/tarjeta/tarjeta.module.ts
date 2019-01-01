@@ -1,14 +1,18 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { CommonModule } from '@angular/common';
 
-import { TarjetaRoutingModule } from './tarjeta-routing.module';
 import { MaterialModule } from './../material/material.module';
+import { SharedModule } from './../shared/shared.module';
+import { TarjetaRoutingModule } from './tarjeta-routing.module';
 
 import { ListTarjetaComponent } from './list-tarjeta/list-tarjeta.component';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 const componentes = [
   ListTarjetaComponent,
+]
+
+const modulos = [
+  MaterialModule, SharedModule, TarjetaRoutingModule
 ]
 
 @NgModule({
@@ -16,8 +20,7 @@ const componentes = [
   declarations: [componentes],
   imports: [
     CommonModule,
-    TarjetaRoutingModule,
-    MaterialModule
+    modulos
   ],
   exports: [componentes]
 })
