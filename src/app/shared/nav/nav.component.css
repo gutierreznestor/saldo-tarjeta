@@ -5,4 +5,27 @@ mat-sidenav-container {
 
 mat-sidenav {
   width: 20vw;
+  height: 100vh;
+}
+
+@media(min-width: 360px) {
+  mat-sidenav {
+    width: 45vw;
+    height: 100vh;
+  }
+}
+
+@media(min-width: 800px) {
+  mat-sidenav {
+    width: 20vw;
+    height: 100vh;
+  }
+}
+
+mat-icon {
+  margin-right: 5px;
+}
+
+mat-card {
+  height: 64px;
 }
