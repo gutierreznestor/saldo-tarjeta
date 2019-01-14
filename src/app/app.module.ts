@@ -9,6 +9,7 @@ import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { TipoTarjetaModule } from './tipo-tarjeta/tipo-tarjeta.module';
+import { UsuarioModule } from './usuario/usuario.module';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -22,6 +23,7 @@ import { TipoTarjetaModule } from './tipo-tarjeta/tipo-tarjeta.module';
     BrowserAnimationsModule,
     SharedModule,
     TipoTarjetaModule,
+    UsuarioModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
