@@ -13,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: "",
-    redirectTo: "tarjeta/lista",
+    redirectTo: "home",
     pathMatch: "full"
   }
 ];
