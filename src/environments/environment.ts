@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyAbAgRAinXWTivWWyl4qnCc6miTvFmv9-E",
+    authDomain: "saldo-tarjeta.firebaseapp.com",
+    databaseURL: "https://saldo-tarjeta.firebaseio.com",
+    projectId: "saldo-tarjeta",
+    storageBucket: "saldo-tarjeta.appspot.com",
+    messagingSenderId: "1082256867566"
+  }
 };
 
 /*

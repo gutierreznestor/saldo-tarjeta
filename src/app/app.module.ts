@@ -11,6 +11,12 @@ import { SharedModule } from './shared/shared.module';
 import { TipoTarjetaModule } from './tipo-tarjeta/tipo-tarjeta.module';
 import { UsuarioModule } from './usuario/usuario.module';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { environment } from './../environments/environment';
+
+
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [AppComponent],
@@ -24,6 +30,9 @@ import { UsuarioModule } from './usuario/usuario.module';
     SharedModule,
     TipoTarjetaModule,
     UsuarioModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
