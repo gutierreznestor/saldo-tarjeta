@@ -1,10 +1,10 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav mode="side" opened>
     <mat-card class="sidenav-header">
-        <mat-card-header>
-            <img matCardAvatar src="https://angularfirebase.com/images/logo.svg">
-            <mat-card-title>Gabriel Gutierrez</mat-card-title>
-            <mat-card-subtitle>@theguty</mat-card-subtitle>
+        <mat-card-header *ngIf="auth.usuario$ | async as usuario" >
+            <img matCardAvatar [src]="usuario.photoURL? usuario.photoURL:'https://angularfirebase.com/images/logo.svg'">
+            <mat-card-title>{{ usuario.displayName }}</mat-card-title>
+            <mat-card-subtitle>{{ usuario.email }}</mat-card-subtitle>
         </mat-card-header>
     </mat-card>
     <mat-nav-list dense>
@@ -20,7 +20,7 @@
         <a mat-list-item>
           <mat-icon>help</mat-icon> Ayuda
         </a>
-        <a mat-list-item>
+        <a mat-list-item (click)="auth.logout()">
           <mat-icon>exit_to_app</mat-icon> Cerrar sesión
         </a>
     </mat-nav-list>

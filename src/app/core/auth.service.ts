@@ -1,9 +1,59 @@
+import { Observable, of } from 'rxjs';
+import { switchMap, merge } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { Usuario } from '../usuario/usuario.model';
+
+import { auth } from 'firebase/app';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor() { }
+  usuario$: Observable<Usuario>;
+
+  constructor(
+    private afAuth: AngularFireAuth,
+    private router: Router,
+    private afs: AngularFirestore,
+  ) {
+    this.usuario$ = this.afAuth.authState.pipe(
+      switchMap(user => {
+        if(user) {
+          return this.afs.doc<Usuario>(`usuarios/${ user.uid }`).valueChanges();
+        } else {
+          return of(null);
+        }
+      })
+    )
+   }
+
+   async loginFacebook() {
+     const provider = new auth.FacebookAuthProvider();
+     const credentials = await this.afAuth.auth.signInWithPopup(provider);
+     this.actualizarDatosUsuario(credentials.user);
+     this.router.navigate(["/tarjeta/lista"]);
+   }
+
+  private actualizarDatosUsuario(usuario) {
+
+    const userRef: AngularFirestoreDocument<Usuario> = this.afs.doc<Usuario>(`usuarios/${usuario.uid}`);
+    const datos = {
+      uid: usuario.uid,
+      email: usuario.email,
+      displayName: usuario.displayName,
+      photoUrl: usuario.photoURL
+    }
+
+    return userRef.set(datos, { merge: true });
+  }
+
+  async logout() {
+    await this.afAuth.auth.signOut();
+    this.router.navigate(['/']);
+  }
+
 }
