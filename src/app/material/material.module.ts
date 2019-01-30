@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MatInputModule, MatSelectModule, MatToolbarModule, MatButtonModule, MatIconModule, MatCardModule, MatSidenavModule, MatListModule, MatTableModule, MatMenuModule, MatTabsModule } from "@angular/material";
+import { MatInputModule, MatSelectModule, MatToolbarModule, MatButtonModule, MatIconModule, MatCardModule, MatSidenavModule, MatListModule, MatTableModule, MatMenuModule, MatTabsModule, MatFormField, MatFormFieldModule } from "@angular/material";
 
 const modulos = [
   MatButtonModule,
@@ -13,7 +13,8 @@ const modulos = [
   MatTableModule,
   MatMenuModule,
   MatTabsModule,
-  MatIconModule
+  MatIconModule,
+  MatFormFieldModule,
 ];
 
 @NgModule({
