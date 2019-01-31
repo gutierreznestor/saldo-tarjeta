@@ -9,12 +9,13 @@ mat-form-field {
   min-width: 150px;
   max-width: 500px;
   width: 100%;
+  padding-bottom: 30px;
 }
 
 mat-card {
-  margin-top: 40px;
+  margin: 40px 0px;
 }
 
 mat-icon {
-  font-size: 1.5rem;
+  font-size: 1rem;
 }

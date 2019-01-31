@@ -10,7 +10,7 @@ import { Usuario } from './../usuario.model';
 })
 export class SignupComponent implements OnInit {
 
-  usuarioForm: FormGroup;
+  form: FormGroup;
   usuario: Usuario;
 
   constructor(
@@ -25,10 +25,29 @@ export class SignupComponent implements OnInit {
     }
 
     ngOnInit() {
-      this.usuarioForm = this.formBuilder.group({
-        Email: [this.usuario.email, [Validators.required, Validators.email]],
-        Usuario: [this.usuario.displayName, [Validators.required, Validators.minLength(6)]],
-        Password: [this.usuario.password, [Validators.required, Validators.minLength(6)]],
+      this.form = this.formBuilder.group({
+        email: ['', [
+          Validators.required,
+          Validators.email]],
+        displayName: ['', [
+          Validators.required,
+          Validators.minLength(6)]],
+        password: ['', [
+          Validators.required,
+          Validators.minLength(6),
+          Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$')]],
       });
+    }
+
+    email() {
+      return this.form.get('email');
+    }
+
+    displayName() {
+      return this.form.get('password');
+    }
+
+    password() {
+      return this.form.get('password');
     }
   }
