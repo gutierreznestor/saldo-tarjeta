@@ -1,9 +1,9 @@
 div.contenedor {
   display: flex;
   flex-direction: column;
-  height: 70vh;
-  margin: 15vh auto;
+  height: 100%;
   align-items: center;
+  padding-bottom: 40px;
 }
 
 img {

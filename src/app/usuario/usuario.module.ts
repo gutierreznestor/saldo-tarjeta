@@ -1,5 +1,7 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 import { UsuarioRoutingModule } from './usuario-routing.module';
 import { MaterialModule } from './../material/material.module';
@@ -13,7 +15,13 @@ const componentes = [
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [componentes],
-  imports: [CommonModule, UsuarioRoutingModule, MaterialModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    UsuarioRoutingModule,
+    MaterialModule,
+  ],
   exports: [componentes]
 })
 export class UsuarioModule {}
