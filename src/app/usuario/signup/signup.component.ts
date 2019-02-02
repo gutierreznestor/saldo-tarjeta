@@ -1,3 +1,4 @@
+import { AuthService } from './../../core/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -14,12 +15,12 @@ export class SignupComponent implements OnInit {
   usuario: Usuario;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private auth: AuthService
     ) {
       this.usuario = {
         uid: '',
         email: '',
-        displayName: '',
         password: ''
       }
     }
@@ -29,9 +30,6 @@ export class SignupComponent implements OnInit {
         email: ['', [
           Validators.required,
           Validators.email]],
-        displayName: ['', [
-          Validators.required,
-          Validators.minLength(6)]],
         password: ['', [
           Validators.required,
           Validators.minLength(6),
@@ -43,11 +41,11 @@ export class SignupComponent implements OnInit {
       return this.form.get('email');
     }
 
-    displayName() {
+    password() {
       return this.form.get('password');
     }
 
-    password() {
-      return this.form.get('password');
+    async onSubmit() {
+      let resultado = await this.auth.registrar(this.form.value);
     }
   }

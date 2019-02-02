@@ -6,7 +6,7 @@ import { Usuario } from '../usuario/usuario.model';
 
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection, CollectionReference } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +14,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 export class AuthService {
 
   usuario$: Observable<Usuario>;
+  usuarios$: CollectionReference;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -28,7 +29,8 @@ export class AuthService {
           return of(null);
         }
       })
-    )
+    );
+    this.usuarios$ = this.afs.firestore.collection("usuarios");
    }
 
    async loginFacebook() {
@@ -54,6 +56,25 @@ export class AuthService {
   async logout() {
     await this.afAuth.auth.signOut();
     this.router.navigate(['/']);
+  }
+
+  async registrar(usuario: Usuario) {
+    let existeEmail = await this.existeEmail(usuario.email);
+  }
+
+  async existeEmail(email) {
+    return await this.usuarios$.where('email', '==', email)
+    .get()
+    .then( res => {
+      if(res.empty) {
+        return false;
+      } else {
+        return true;
+      }
+    })
+    .catch( (error) => {
+      console.error('Error al verificar si existe email. '+error);
+    })
   }
 
 }
