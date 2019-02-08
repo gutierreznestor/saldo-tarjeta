@@ -1,12 +1,16 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist
-/tmp
-/out-tsc
+/ngApp/dist
+/ngApp/tmp
+/ngApp/out-tsc
+/server/dist
+/server/tmp
+/server/out-tsc
 
 # dependencies
-/node_modules
+ngApp/node_modules/
+server/node_modules/
 
 # IDEs and editors
 /.idea
