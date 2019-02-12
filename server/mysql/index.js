@@ -2,14 +2,15 @@ const mysql = require('mysql');
 
 const urlHost = 'localhost';
 
-const mysqlConnection = mysql.createConnection({
+const pool = mysql.createPool({
     host: urlHost,
     user: 'root',
     password: '',
-    database: 'saldotarjeta'
+    database: 'saldotarjeta',
+    multipleStatements: true
 });
 
-mysqlConnection.connect((error) => {
+pool.getConnection((error) => {
     if(error) {
         console.log(error);        
     } else {
@@ -17,4 +18,4 @@ mysqlConnection.connect((error) => {
     }
 });
 
-module.exports = mysqlConnection;
+module.exports = pool;
