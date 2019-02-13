@@ -59,7 +59,9 @@ export class AuthService {
   }
 
   async registrar(usuario: Usuario) {
-    let existeEmail = await this.existeEmail(usuario.Email);
+    // let existeEmail = await this.existeEmail(usuario.Email);
+    console.log(usuario);
+
   }
 
   async existeEmail(email) {

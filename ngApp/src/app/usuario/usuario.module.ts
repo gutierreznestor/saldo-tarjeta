@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { UsuarioRoutingModule } from './usuario-routing.module';
 import { MaterialModule } from './../material/material.module';
+import { SharedModule } from '../shared/shared.module';
 
 import { SignupComponent } from './signup/signup.component';
 import { ListaComponent } from './lista/lista.component';
@@ -22,6 +23,7 @@ const componentes = [
     ReactiveFormsModule,
     UsuarioRoutingModule,
     MaterialModule,
+    SharedModule,
   ],
   exports: [componentes]
 })

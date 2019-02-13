@@ -27,22 +27,22 @@ export class SignupComponent implements OnInit {
 
     ngOnInit() {
       this.form = this.formBuilder.group({
-        email: ['', [
+        Email: ['', [
           Validators.required,
           Validators.email]],
-        password: ['', [
+        Password: ['', [
           Validators.required,
           Validators.minLength(6),
           Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$')]],
       });
     }
 
-    email() {
-      return this.form.get('email');
+    Email() {
+      return this.form.get('Email');
     }
 
-    password() {
-      return this.form.get('password');
+    Password() {
+      return this.form.get('Password');
     }
 
     async onSubmit() {
