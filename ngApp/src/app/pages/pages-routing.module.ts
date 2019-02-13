@@ -1,16 +1,17 @@
-import { ListTarjetaComponent } from './list-tarjeta/list-tarjeta.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "lista",
+    redirectTo: "home",
     pathMatch: "full"
   },
   {
-    path: 'lista',
-    component: ListTarjetaComponent
+    path: 'home',
+    component: HomeComponent
   }
 ];
 
@@ -18,4 +19,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TarjetaRoutingModule { }
+export class PagesRoutingModule { }

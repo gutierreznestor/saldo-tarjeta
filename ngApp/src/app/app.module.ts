@@ -7,15 +7,13 @@ import { CoreModule } from './core/core.module';
 import { PagesModule } from './pages/pages.module';
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SharedModule } from './shared/shared.module';
-import { TipoTarjetaModule } from './tipo-tarjeta/tipo-tarjeta.module';
-import { UsuarioModule } from './usuario/usuario.module';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AngularFireAuthModule } from "@angular/fire/auth";
-import { environment } from './../environments/environment';
+import { environment } from '../environments/environment';
 
+const modulos = [CoreModule, AppRoutingModule];
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -23,16 +21,11 @@ import { environment } from './../environments/environment';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreModule,
-    PagesModule,
-    MaterialModule,
     BrowserAnimationsModule,
-    SharedModule,
-    TipoTarjetaModule,
-    UsuarioModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    modulos,
   ],
   providers: [],
   bootstrap: [AppComponent]

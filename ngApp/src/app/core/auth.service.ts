@@ -36,8 +36,8 @@ export class AuthService {
    async loginFacebook() {
      const provider = new auth.FacebookAuthProvider();
      const credentials = await this.afAuth.auth.signInWithPopup(provider);
-     this.actualizarDatosUsuario(credentials.user);
-     this.router.navigate(["/tarjeta/lista"]);
+    //  this.actualizarDatosUsuario(credentials.user);
+     this.router.navigate(["/tarjetas"]);
    }
 
   private actualizarDatosUsuario(usuario) {
@@ -45,9 +45,9 @@ export class AuthService {
     const userRef: AngularFirestoreDocument<Usuario> = this.afs.doc<Usuario>(`usuarios/${usuario.uid}`);
     const datos = {
       uid: usuario.uid,
-      email: usuario.email,
-      displayName: usuario.displayName,
-      photoUrl: usuario.photoURL
+      Email: usuario.email,
+      Usuario: usuario.displayName,
+      PhotoUrl: usuario.photoURL
     }
 
     return userRef.set(datos, { merge: true });
@@ -59,7 +59,7 @@ export class AuthService {
   }
 
   async registrar(usuario: Usuario) {
-    let existeEmail = await this.existeEmail(usuario.email);
+    let existeEmail = await this.existeEmail(usuario.Email);
   }
 
   async existeEmail(email) {

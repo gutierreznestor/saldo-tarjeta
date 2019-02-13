@@ -20,6 +20,10 @@
         <a mat-list-item>
           <mat-icon>help</mat-icon> Ayuda
         </a>
+        <a mat-list-item routerLink="usuarios" routerLinkActive="router-link-active" >
+          <mat-icon>people</mat-icon> Usuarios
+        </a>
+
         <a mat-list-item (click)="auth.logout()">
           <mat-icon>exit_to_app</mat-icon> Cerrar sesión
         </a>

@@ -1,21 +1,16 @@
-import { HomeComponent } from './pages/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: "home",
-    component: HomeComponent
-  },
-  {
-    path: "tarjeta",
-    loadChildren: './tarjeta/tarjeta.module#TarjetaModule'
-  },
-  {
-    path: "",
-    redirectTo: "home",
+    path: '',
+    redirectTo: "pages",
     pathMatch: "full"
-  }
+  },
+  {
+    path: "pages",
+    loadChildren: './pages/pages.module#PagesModule'
+  },
 ];
 
 @NgModule({

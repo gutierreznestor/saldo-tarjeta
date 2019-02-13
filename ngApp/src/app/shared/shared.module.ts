@@ -10,7 +10,7 @@ const componentes = [NavComponent]
   declarations: [componentes],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
   ],
   exports: [componentes]
 })

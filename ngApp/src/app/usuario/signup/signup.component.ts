@@ -20,8 +20,8 @@ export class SignupComponent implements OnInit {
     ) {
       this.usuario = {
         uid: '',
-        email: '',
-        password: ''
+        Email: '',
+        Password: ''
       }
     }
 
