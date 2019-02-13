@@ -7,6 +7,7 @@ import { UsuarioRoutingModule } from './usuario-routing.module';
 import { MaterialModule } from './../material/material.module';
 
 import { SignupComponent } from './signup/signup.component';
+import { ListaComponent } from './lista/lista.component';
 
 const componentes = [
   SignupComponent,
@@ -14,7 +15,7 @@ const componentes = [
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  declarations: [componentes],
+  declarations: [componentes, ListaComponent],
   imports: [
     CommonModule,
     FormsModule,
