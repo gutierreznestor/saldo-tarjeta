@@ -1,7 +1,8 @@
 <app-nav>
   <mat-list dense>
-      <mat-list-item *ngFor="let item of [1,2,3,4]">
-          {{item}}
+      <mat-list-item *ngFor="let post of auth.usuarios | async">
+          {{post|json}}
       </mat-list-item>
+      <button mat-button (click)="auth.getUsuarios()">Action</button>
   </mat-list>
 </app-nav>

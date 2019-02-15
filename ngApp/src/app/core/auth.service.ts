@@ -3,6 +3,7 @@ import { switchMap, merge } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from '../usuario/usuario.model';
+import { HttpClient } from '@angular/common/http';
 
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -13,13 +14,16 @@ import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection,
 })
 export class AuthService {
 
+  readonly ROOT_URL = 'http://localhost:3000';
+
   usuario$: Observable<Usuario>;
   usuarios$: CollectionReference;
-
+  usuarios: Observable<Usuario[]>;
   constructor(
     private afAuth: AngularFireAuth,
     private router: Router,
     private afs: AngularFirestore,
+    private http: HttpClient
   ) {
     this.usuario$ = this.afAuth.authState.pipe(
       switchMap(user => {
@@ -61,22 +65,16 @@ export class AuthService {
   async registrar(usuario: Usuario) {
     // let existeEmail = await this.existeEmail(usuario.Email);
     console.log(usuario);
-
   }
 
   async existeEmail(email) {
-    return await this.usuarios$.where('email', '==', email)
-    .get()
-    .then( res => {
-      if(res.empty) {
-        return false;
-      } else {
-        return true;
-      }
-    })
-    .catch( (error) => {
-      console.error('Error al verificar si existe email. '+error);
-    })
+
+  }
+
+  async getUsuarios() {
+    this.usuarios = this.http.get<Usuario[]>(this.ROOT_URL+'/usuarios').pipe( usuarios => {
+      return usuarios;
+    });
   }
 
 }
